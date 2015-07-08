@@ -1,0 +1,22 @@
+{
+  "name": "stream-api-wrapper",
+  "version": "1.0.0",
+  "description": "simple http wrapper for livestream",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/audibleblink/stream-api-wrapper.git"
+  },
+  "author": "Alex Flores <me@alexflor.es> (http://alexflor.es/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/audibleblink/stream-api-wrapper/issues"
+  },
+  "homepage": "https://github.com/audibleblink/stream-api-wrapper#readme",
+  "dependencies": {
+    "request": "^2.58.0"
+  }
+}
