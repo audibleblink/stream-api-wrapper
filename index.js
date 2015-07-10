@@ -1,6 +1,4 @@
 var request = require('request')
-var when    = require('when')
-
 var API_URL = 'https://api.new.livestream.com'
 
 module.exports = {
@@ -8,15 +6,20 @@ module.exports = {
 }
 
 function getAccount(number){
-  var dfd = when.defer()
+  var fullUrl = createUrl('accounts', number)
+  return createPromise('get', fullUrl)
+}
 
-  var endpoint = "accounts"
-  var fullUrl  = [API_URL, endpoint, number].join("/")
 
-  request(fullUrl, function(err, res, body){
-    err ? dfd.reject(err) : dfd.resolve(JSON.parse(body))
+function createUrl(endpoint, path){
+  return [API_URL, endpoint, path].join("/")
+}
+
+function createPromise(method, uri) {
+  var options = {method: method, uri: uri}
+  return new Promise(function(resolve, reject) {
+    request(options, function(err, res, body){
+      err ? reject(err) : resolve(body)
+    })
   })
-
-  return dfd.promise
-
 }
