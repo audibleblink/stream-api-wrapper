@@ -2,7 +2,7 @@
 
 ## Description
 
-A super simple API wrapper for Livestream's API. 
+A super simple promise API wrapper for Livestream's API.
 
 ## Usage
 
@@ -12,12 +12,12 @@ To get a user's account information:
 
 var livestreamApi = require('stream-api-wrapper')
 
-livestreamApi.account('6488818', function(err, accountInfo{
-    if (err) {
-        console.error(err)
-    } else {
-        console.log(accountInfo)
-    }
-})
+livestreamApi.account('6488818')
+  .then(function(accountInfo) {
+    console.log(accountInfo)
+  })
+  .catch(function(err){
+    console.error(err)
+  })
 
 ```
